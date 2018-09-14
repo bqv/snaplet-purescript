@@ -37,7 +37,7 @@ initPurs = makeSnaplet "purs" description (Just dataDir) $ do
   destDir    <- getDestDir
   shelly $ verbosely $ chdir (fromText destDir) $ do
     let envCfg = fromText $ destDir <> T.pack ("/" <> env <> ".cfg")
-    echo $ "Checking existance of " <> toTextIgnore envCfg
+    echo $ "Checking existence of " <> toTextIgnore envCfg
     envCfgExists <- test_f envCfg
     unless envCfgExists $ do
       touchfile envCfg
